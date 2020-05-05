@@ -5,6 +5,8 @@ This is a quick gardening blog that'll be built with React for the frontend and 
 ## Additional Docs
 As this is a learning project, additional documentation can be found below. Hope it helps on your coding journey!
 
+- [Initial Research](./docs/init-research.md)
+
 ## Basic Requirements
 Here are the basic requirements for this project:
 - it needs to use React for the front end
@@ -12,3 +14,6 @@ Here are the basic requirements for this project:
 - the final app needs to be on Amazon Web Services
 
 Not much to it, but there's a lot of room to grow this in complexity.
+
+## Learning Objectives
+The learning objectives for this project are simple. I want to learn how to deploy a moderately complex application to AWS, and I want to learn to use Wordpress. Kubernetes is kind of a bonus, but also would be nice and I'd be learning SSH and Linux concepts/ topics as a direct result of deploying to AWS.
