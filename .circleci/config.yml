@@ -2,20 +2,16 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
-  hello:
-    executor:
-      name: node/default
-    steps:
-      - run: echo 'Hello there!'
-  checkout:
+  test-react:
     executor:
       name: node/default
     steps:
       - checkout
-      - run: node --version
-      - run: npm --version
+      - run: ls
+      - run: cd 'react-app'
+      # - run: npm ci
+      # - run: npm run build
 workflows:
-    checkout:
+    test:
       jobs:
-        - hello
-        - checkout
+        - test-react
