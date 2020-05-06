@@ -6,7 +6,7 @@ jobs:
     executor:
       name: node/default
     steps:
-      - echo 'Hello there!'
+      - run: echo 'Hello there!'
   checkout:
     executor:
       name: node/default
