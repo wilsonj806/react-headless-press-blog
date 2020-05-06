@@ -1,0 +1,23 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  test-react:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "react-app/package-lock.json"}}
+      # CircleCI seems to start a new terminal when you run each script
+      - run: cd react-app && npm ci
+      - save_cache:
+        # Need to add the path for the package-lock file or the checksum fails!
+          key: dependency-cache-{{ checksum "react-app/package-lock.json"}}
+          paths:
+            - ./node_modules
+      - run: cd react-app && npm run build
+workflows:
+    test:
+      jobs:
+        - test-react
