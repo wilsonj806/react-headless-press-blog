@@ -42,9 +42,17 @@ There's also the option to play with Wordpress staging environments, which seems
 
 - [Back to top](#initial-research)
 ## Production Environment
+We're deploying to AWS, so first we need to understand what AWS service does what in relation to our app. I've listed the relevant ones below:
+- AWS S3(Simple Storage Service): static hosting of the React app
+- AWS EC2(Elastic Compute Cloud): hosts service instances. In this case it's going to be running our headless Wordpress instance
+- AWS RDS(Relational Database Service): database hosting and scaling
 
-Look at AWS
-look at AWS costs and also how Kube plays in
-look at provisioning PostgreSQL
-look at migrating any local files and stuff
+So if I made a really low budget UML(Unified Modeling Language) diagram, it'd look like:
+```
+  User Browser => AWS S3 React App <==> AWS EC2 Headless Wordpress Instance <=> AWS RDS SQL Instance
+```
+
+The other thing we need to do is synchronize our database between local and production. The reason for this should be straight-forwards, we don't want placeholder content in production and we don't want to develop our React app without solid content. Not sure how that's going to work just yet
+
+
 - [Back to top](#initial-research)
