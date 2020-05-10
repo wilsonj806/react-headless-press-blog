@@ -18,18 +18,18 @@ jobs:
           paths:
             - ./node_modules
       - persist_to_workspace:
-        root: .
-        paths:
-          - ./react-app/*
+          root: .
+          paths:
+            - ./react-app/*
   build-app:
     executor:
       name: node/default
     steps:
       - run: cd react-app && npm run build
       - persist_to_workspace:
-        root: .
-        paths:
-          - ./react-app/build
+          root: .
+          paths:
+            - ./react-app/build
   deploy-to-aws:
     executor:
       name: node/default
@@ -42,8 +42,8 @@ workflows:
     jobs:
       - test-react
       - build-app:
-        requires:
-          - test-react
+          requires:
+            - test-react
       - deploy-to-aws:
-        requires:
-          - build-app
+          requires:
+            - build-app
