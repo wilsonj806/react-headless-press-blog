@@ -39,7 +39,7 @@ jobs:
     # Access env vars from CircleCI
     steps:
       - attach_workspace:
-          at: ./react-app/build
+          at: build
       - run: echo 'deploying to S3'
       - aws-s3/sync:
           # Dry run of syncing to S3 and delete files that don't exist in new source
