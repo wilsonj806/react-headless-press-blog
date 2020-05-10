@@ -38,11 +38,11 @@ jobs:
       - attach_workspace:
           at: ./react-app/build
       - run: ls -R
-      - aws-cli/setup:
-          profile-name: default
-      - run:
-          name: Upload file to S3
-          command: aws s3 sync ./react-app/build/ s3://greenerinteriors --delete
+      - aws-s3/sync:
+          arguments: --dry-run
+          from: react-app/build
+          overwrite: true
+          to: 's3://greenerinteriors'
 
 # CI Workflow/ Pipeline
 workflows:
