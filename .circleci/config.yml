@@ -17,14 +17,13 @@ jobs:
           key: dependency-cache-{{ checksum "react-app/package-lock.json"}}
           paths:
             - ./node_modules
-      - persist_to_workspace:
-          root: .
-          paths:
-            - react-app/*
   build-app:
     executor:
       name: node/default
     steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "react-app/package-lock.json"}}
       - run: cd react-app && npm run build
       - persist_to_workspace:
           root: .
