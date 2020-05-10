@@ -20,7 +20,7 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - ./react-app/*
+            - react-app/*
   build-app:
     executor:
       name: node/default
@@ -29,13 +29,15 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - ./react-app/build
+            - react-app/build
   deploy-to-aws:
     executor:
       name: node/default
     steps:
       - run: echo 'deploying dry run'
-      - run: ls -lR
+      - attach_workspace:
+          at: ./react-app/build
+      - run: ls -l
 # CI Workflow/ Pipeline
 workflows:
   build-deploy:
