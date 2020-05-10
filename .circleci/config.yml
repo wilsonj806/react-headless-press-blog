@@ -32,17 +32,17 @@ jobs:
             - react-app/build
   deploy-to-aws:
     executor:
-      name: node/default
+      name: aws-cli/default
     # Access env vars from CircleCI
     steps:
       - attach_workspace:
           at: ./react-app/build
       - run: ls -R
       - aws-cli/setup:
-        profile-name: default
+          profile-name: default
       - run:
-        name: Upload file to S3
-        command: aws s3 sync ./react-app/build/ s3://greenerinteriors --delete
+          name: Upload file to S3
+          command: aws s3 sync ./react-app/build/ s3://greenerinteriors --delete
 
 # CI Workflow/ Pipeline
 workflows:
