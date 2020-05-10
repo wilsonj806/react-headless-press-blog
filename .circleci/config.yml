@@ -39,11 +39,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ./react-app/build
-      - run: ls -R
+      - run: echo 'deploying to S3'
       - aws-s3/sync:
           # Dry run of syncing to S3 and delete files that don't exist in new source
-          arguments: |
-            --dryrun
           from: react-app/build
           overwrite: true
           to: 's3://greenerinteriors'
@@ -61,3 +59,7 @@ workflows:
             - build-app
           # Add AWS Context based env vars in
           context: aws-context
+          filters:
+            branches:
+              only:
+                - master
