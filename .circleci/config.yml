@@ -2,17 +2,6 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
   aws-s3: circleci/aws-s3@1.0.15
-# CI Job Pipeline
-workflows:
-  build-deploy:
-    jobs:
-      - test-react
-      - build-app:
-        requires:
-          - test-react
-      - deploy-to-aws:
-        requires:
-          - build-app
 jobs:
   test-react:
     executor:
@@ -47,3 +36,14 @@ jobs:
     steps:
       - run: echo 'deploying dry run'
       - run: ls -lR
+# CI Workflow/ Pipeline
+workflows:
+  build-deploy:
+    jobs:
+      - test-react
+      - build-app:
+        requires:
+          - test-react
+      - deploy-to-aws:
+        requires:
+          - build-app
