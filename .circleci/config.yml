@@ -34,12 +34,16 @@ jobs:
     executor:
       name: node/default
     # Access env vars from CircleCI
-    context: aws-context
     steps:
-      - run: echo 'deploying dry run'
       - attach_workspace:
           at: ./react-app/build
       - run: ls -R
+      - aws-cli/setup:
+        profile-name: default
+      - run:
+        name: Upload file to S3
+        command: aws s3 sync ./react-app/build/ s3://greenerinteriors --delete
+
 # CI Workflow/ Pipeline
 workflows:
   build-deploy:
@@ -51,3 +55,5 @@ workflows:
       - deploy-to-aws:
           requires:
             - build-app
+          # Add AWS Context based env vars in
+          context: aws-context
