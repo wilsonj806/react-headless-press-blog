@@ -20,7 +20,7 @@ jobs:
       - persist_to_workspace:
         root: .
         paths:
-          - react-app/*
+          - ./react-app/*
   build-app:
     executor:
       name: node/default
@@ -29,7 +29,7 @@ jobs:
       - persist_to_workspace:
         root: .
         paths:
-          - react-app/build
+          - ./react-app/build
   deploy-to-aws:
     executor:
       name: node/default
