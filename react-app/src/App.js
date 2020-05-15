@@ -6,19 +6,23 @@ import AboutCard from "./components/AboutCard";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <PrimNav />
-      <section class="intro">
-        <DumbCardHl />
-        <DumbCardHl />
+      <article className="landing">
+        <section className="intro">
+          <div className="wrap-highlight-cards">
+            <DumbCardHl />
+            <DumbCardHl />
+          </div>
+        </section>
         <AboutCard />
-      </section>
-      <section>
-        <DumbCard />
-        <DumbCard />
-        <DumbCard />
-      </section>
-    </div>
+        <section>
+          <DumbCard />
+          <DumbCard />
+          <DumbCard />
+        </section>
+      </article>
+    </>
   );
 }
 
