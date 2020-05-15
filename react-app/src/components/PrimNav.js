@@ -1,12 +1,13 @@
 import React from "react";
+import "./styles/nav.css";
 
-const PrimaryNav = (props) => (
+const PrimaryNav = () => (
   <nav id="primary-nav">
-    <div>
+    <div className="nav-header">
       <h1>Site Title Here</h1>
     </div>
     <div>
-      <ul>
+      <ul className="nav-list">
         <li>About</li>
         <li>Media</li>
         <li>Articles</li>

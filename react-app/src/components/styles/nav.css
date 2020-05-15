@@ -1,0 +1,13 @@
+#primary-nav {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+  box-shadow: 2px 2px 4px rgba(19, 19, 19, 0.5);
+}
+
+.nav-list > li {
+  display: inline-block;
+  margin: 0 8px;
+}
