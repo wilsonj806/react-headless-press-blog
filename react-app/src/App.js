@@ -1,21 +1,23 @@
 import React from "react";
+import PrimNav from "./components/PrimNav";
+import DumbCard from "./components/DumbCard";
+import DumbCardHl from "./components/DumbCard-HL";
+import AboutCard from "./components/AboutCard";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PrimNav />
+      <section class="intro">
+        <DumbCardHl />
+        <DumbCardHl />
+        <AboutCard />
+      </section>
+      <section>
+        <DumbCard />
+        <DumbCard />
+        <DumbCard />
+      </section>
     </div>
   );
 }
