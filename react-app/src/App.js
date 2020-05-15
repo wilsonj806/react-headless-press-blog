@@ -9,18 +9,22 @@ function App() {
     <>
       <PrimNav />
       <article className="landing">
-        <section className="intro">
-          <div className="wrap-highlight-cards">
-            <DumbCardHl />
-            <DumbCardHl />
-          </div>
-        </section>
-        <AboutCard />
-        <section>
-          <DumbCard />
-          <DumbCard />
-          <DumbCard />
-        </section>
+        <div className="ctr-landing-content">
+          <section className="intro">
+            <div className="ctr-intro">
+              <div className="wrap-highlight-cards">
+                <DumbCardHl />
+                <DumbCardHl />
+              </div>
+              <AboutCard />
+            </div>
+          </section>
+          <section className="blogs-list">
+            <DumbCard />
+            <DumbCard />
+            <DumbCard />
+          </section>
+        </div>
       </article>
     </>
   );
