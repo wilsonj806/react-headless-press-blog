@@ -1,0 +1,21 @@
+.card--landing {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+.card-body {
+  max-width: 70%;
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.card-header {
+  width: 100px;
+  height: 100px;
+  margin: 0 16px;
+  background: grey;
+}

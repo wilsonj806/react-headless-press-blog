@@ -1,9 +1,10 @@
 import React from "react";
+import "./styles/landing-card.css";
 
 const DumbCard = () => (
-  <section>
-    <div style={{ width: "100px", height: "100px", background: "grey" }} />
-    <div>
+  <section className="card--landing">
+    <header className="card-header" />
+    <div className="card-body">
       <h3>Article Name</h3>
       <p>
         Suspendisse auctor, lorem iaculis ornare sagittis, turpis sem cursus
