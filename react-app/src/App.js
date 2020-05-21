@@ -1,12 +1,8 @@
 import React from "react";
-import Landing from "./pages/Landing";
+import Routes from "./Routes";
 
 function App() {
-  return (
-    <>
-      <Landing />
-    </>
-  );
+  return <Routes />;
 }
 
 export default App;
