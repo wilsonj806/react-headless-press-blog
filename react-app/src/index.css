@@ -37,9 +37,9 @@ code {
   margin: auto;
 }
 
-.wrap-highlight-cards {
+.intro-content {
   display: flex;
-  align-items: center;
-  flex-flow: row nowrap;
+  align-items: flex-start;
+  flex-flow: column nowrap;
   justify-content: flex-start;
 }
