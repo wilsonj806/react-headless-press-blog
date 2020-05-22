@@ -6,13 +6,17 @@ const PrimaryNav = () => (
     <div className="nav-header">
       <h1>Site Title Here</h1>
     </div>
-    <div>
-      <ul className="nav-list">
-        <li>About</li>
-        <li>Media</li>
-        <li>Articles</li>
-      </ul>
-    </div>
+    <ul className="nav-list">
+      <li className="nav-item">
+        <span>About</span>
+      </li>
+      <li className="nav-item">
+        <span>Media</span>
+      </li>
+      <li className="nav-item">
+        <span>Articles</span>
+      </li>
+    </ul>
   </nav>
 );
 
