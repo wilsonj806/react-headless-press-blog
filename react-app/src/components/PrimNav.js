@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/nav.css";
+import "./styles/prim-nav.css";
 
 const PrimaryNav = () => (
   <nav id="primary-nav">
