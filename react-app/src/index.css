@@ -13,9 +13,19 @@ code {
     monospace;
 }
 
+.ctr-base-layout {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing {
+  max-width: 60%;
+}
+
 .ctr-landing-content {
-  width: 50%;
-  margin: auto;
+  /* width: 50%; */
   display: flex;
   justify-content: center;
   align-items: center;
