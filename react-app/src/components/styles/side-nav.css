@@ -3,8 +3,12 @@
 }
 
 .sec-about {
-  margin-top: 32px;
+  /* padding-top: 32px; */
   padding: 8px 16px;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-left: 1px solid black;
+  /* border-bottom: 1px solid black; */
+}
+
+h2 {
+  margin: 0 0 16px 0;
 }

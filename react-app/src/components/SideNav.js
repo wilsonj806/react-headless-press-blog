@@ -5,7 +5,7 @@ const SideNav = () => {
   return (
     <nav id="side-nav">
       <section className="sec-about">
-        <h1>About</h1>
+        <h2>About</h2>
         <p>
           Nullam eu nibh vel felis molestie vehicula. Praesent nunc massa,
           suscipit vel ipsum id, venenatis malesuada quam. Proin faucibus
