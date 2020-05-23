@@ -6,6 +6,14 @@ const DumbCard = () => (
     <header className="card-header" />
     <div className="card-body">
       <h3>Article Name</h3>
+      <p className="content--meta">
+        <span className="label--meta">Date added:</span>
+        9999999
+      </p>
+      <p className="content--meta">
+        <span className="label--meta">Estimated Read Time:</span>
+        9999999
+      </p>
       <p>
         Suspendisse auctor, lorem iaculis ornare sagittis, turpis sem cursus
         nisl, a mollis velit quam at massa. Proin sit amet felis feugiat,
@@ -18,7 +26,9 @@ const DumbCard = () => (
         placerat in leo. Sed sollicitudin facilisis nisi, et efficitur turpis
         accumsan sit amet.
       </p>
-      <button>Read More</button>
+      <div className="card-expand">
+        <button className="btn--read-more">Read More</button>
+      </div>
     </div>
   </section>
 );
