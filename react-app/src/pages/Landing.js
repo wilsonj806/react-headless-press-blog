@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import DumbCard from "../components/DumbCard";
+import LandingCard from "../components/LandingCard";
 import BaseLayout from "../layouts/BaseLayout";
 
 const Landing = () => {
@@ -29,7 +29,7 @@ const Landing = () => {
 
   const MappedArticles =
     landingArticles.length > 0
-      ? landingArticles.map((article) => <DumbCard article={article} />)
+      ? landingArticles.map((article) => <LandingCard article={article} />)
       : null;
   return (
     <BaseLayout>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./styles/landing-card.css";
 
-const DumbCard = ({ article }) => {
+const LandingCard = ({ article }) => {
   return (
     // The actual content will need a dangerouslySetInnerHTML
     <section className="card--landing">
@@ -31,4 +31,4 @@ const DumbCard = ({ article }) => {
   );
 };
 
-export default DumbCard;
+export default LandingCard;
