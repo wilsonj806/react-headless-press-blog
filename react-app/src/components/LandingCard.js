@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// TODO Figure out how routing will work for individual blog posts
+// import { Link } from "react-router-dom";
 import "./styles/landing-card.css";
 
 const LandingCard = ({ article }) => {
