@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import LandingCard from "../components/LandingCard";
 import BaseLayout from "../layouts/BaseLayout";
 
+import debounce from "../utils/debounce";
+
 const Landing = () => {
   const [landingArticles, setArticles] = useState([]);
   const [isLoading, setLoadingState] = useState(false);
@@ -36,7 +38,7 @@ const Landing = () => {
         setLoadingState(false);
       }
     };
-    asyncFetch();
+    debounce(asyncFetch, 100)();
   }, []);
 
   const MappedArticles =
@@ -55,7 +57,10 @@ const Landing = () => {
     <BaseLayout>
       <article className="layout--content">
         <div className="ctr-landing-content">
-          <section className="blogs-list">{MappedArticles}</section>
+          <section className="blogs-list">
+            {/* <LandingCard isPlaceholder /> */}
+            {MappedArticles}
+          </section>
         </div>
       </article>
     </BaseLayout>
