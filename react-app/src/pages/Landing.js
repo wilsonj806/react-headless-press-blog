@@ -43,7 +43,7 @@ const Landing = () => {
   }, []);
 
   const MappedArticles =
-    landingArticles.length > 0 ? (
+    landingArticles.length > 0 && !isLoading ? (
       landingArticles.map((article) => (
         <LandingCard article={article} key={article.id} />
       ))
@@ -60,10 +60,7 @@ const Landing = () => {
     <BaseLayout>
       <article className="layout--content">
         <div className="ctr-landing-content">
-          <section className="blogs-list">
-            {/* <LandingCard isPlaceholder /> */}
-            {MappedArticles}
-          </section>
+          <section className="blogs-list">{MappedArticles}</section>
         </div>
       </article>
     </BaseLayout>
