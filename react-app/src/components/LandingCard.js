@@ -3,10 +3,20 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import "./styles/landing-card.css";
 
-const LandingCard = ({ article }) => {
-  return (
-    // The actual content will need a dangerouslySetInnerHTML
-    <section className="card--landing">
+const LandingCard = ({ article, isPlaceholder }) => {
+  const ToRender = isPlaceholder ? (
+    <>
+      <div className="card-thumbnail--mock" />
+      <div className="card-body">
+        <div className="title--mock" />
+        <div className="meta--mock" />
+        <div className="meta--mock" />
+        <div className="content--mock" />
+      </div>
+    </>
+  ) : (
+    // FIXME The Header element is semantically wrong
+    <>
       <header className="card-header" />
       <div className="card-body">
         <h3>{article.title}</h3>
@@ -28,6 +38,12 @@ const LandingCard = ({ article }) => {
           </button>
         </div>
       </div>
+    </>
+  );
+  return (
+    // The actual content will need a dangerouslySetInnerHTML
+    <section className={`${isPlaceholder ? "landing--mock" : "card--landing"}`}>
+      {ToRender}
     </section>
   );
 };
