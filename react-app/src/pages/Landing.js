@@ -1,61 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Redirect } from "react-router-dom";
 
 import LandingCard from "../components/LandingCard";
 import BaseLayout from "../layouts/BaseLayout";
 
+import useLandingFetch from "../react-hooks/useLandingFetch";
 import debounce from "../utils/debounce";
 
 const Landing = () => {
-  const [landingArticles, setArticles] = useState([]);
-  const [isLoading, setLoadingState] = useState(false);
-  useEffect(() => {
-    setLoadingState(true);
-    const asyncFetch = async () => {
-      try {
-        // TODO Add placeholder block while it loads
-        const api = "http://localhost:8000/wp-json/wp/v2/posts?per_page=5";
-        const res = await fetch(api)
-          .then((res) => res.json())
-          .catch((err) => {
-            throw new Error(err);
-          });
-        console.log(res);
-        const articles = res.map(
-          ({ id, date, excerpt, link, tags, title, slug, author }) => {
-            return {
-              id,
-              date,
-              excerpt,
-              link,
-              tags,
-              title: title.rendered,
-            };
-          }
-        );
-        setArticles(articles);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoadingState(false);
-      }
-    };
-    debounce(asyncFetch, 100)();
-  }, []);
+  const { err, articles, isLoading } = useLandingFetch();
 
-  const MappedArticles =
-    landingArticles.length > 0 && !isLoading ? (
-      landingArticles.map((article) => (
-        <LandingCard article={article} key={article.id} />
-      ))
-    ) : (
-      <>
-        <LandingCard isPlaceholder key={0} />
-        <LandingCard isPlaceholder key={1} />
-        <LandingCard isPlaceholder key={2} />
-        <LandingCard isPlaceholder key={3} />
-        <LandingCard isPlaceholder key={4} />
-      </>
-    );
+  // If there's an error, redirect to 500 page, else if articles, map articles, else return placeholders
+  // TODO update this so that the placeholders only occur during loading
+  const MappedArticles = err ? (
+    <Redirect to="/500" />
+  ) : articles.length > 0 && !isLoading ? (
+    articles.map((article) => (
+      <LandingCard article={article} key={article.id} />
+    ))
+  ) : (
+    <>
+      <LandingCard isPlaceholder key={0} />
+      <LandingCard isPlaceholder key={1} />
+      <LandingCard isPlaceholder key={2} />
+      <LandingCard isPlaceholder key={3} />
+      <LandingCard isPlaceholder key={4} />
+    </>
+  );
   return (
     <BaseLayout>
       <article className="layout--content">
