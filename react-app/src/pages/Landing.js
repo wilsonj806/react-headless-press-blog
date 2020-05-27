@@ -21,8 +21,9 @@ const Landing = () => {
           });
         console.log(res);
         const articles = res.map(
-          ({ date, excerpt, link, tags, title, author }) => {
+          ({ id, date, excerpt, link, tags, title, slug, author }) => {
             return {
+              id,
               date,
               excerpt,
               link,
@@ -43,14 +44,16 @@ const Landing = () => {
 
   const MappedArticles =
     landingArticles.length > 0 ? (
-      landingArticles.map((article) => <LandingCard article={article} />)
+      landingArticles.map((article) => (
+        <LandingCard article={article} key={article.id} />
+      ))
     ) : (
       <>
-        <LandingCard isPlaceholder />
-        <LandingCard isPlaceholder />
-        <LandingCard isPlaceholder />
-        <LandingCard isPlaceholder />
-        <LandingCard isPlaceholder />
+        <LandingCard isPlaceholder key={0} />
+        <LandingCard isPlaceholder key={1} />
+        <LandingCard isPlaceholder key={2} />
+        <LandingCard isPlaceholder key={3} />
+        <LandingCard isPlaceholder key={4} />
       </>
     );
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-// TODO Figure out how routing will work for individual blog posts
-// import { Link } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 import "./styles/landing-card.css";
 
 const LandingCard = ({ article, isPlaceholder }) => {
@@ -33,9 +33,9 @@ const LandingCard = ({ article, isPlaceholder }) => {
           dangerouslySetInnerHTML={{ __html: article.excerpt.rendered }}
         ></div>
         <div className="card-expand">
-          <button className="btn--read-more" type="button">
+          <Link className="btn--read-more" to={`/blog/${article.id}`}>
             Continue Reading
-          </button>
+          </Link>
         </div>
       </div>
     </>
