@@ -3,38 +3,19 @@ import { useParams } from "react-router-dom";
 
 import BaseLayout from "../layouts/BaseLayout";
 
+import useBlogFetch from "../react-hooks/useBlogFetch";
+
 const BlogLayout = () => {
-  const param = useParams();
-  const [article, setArticle] = useState(undefined);
-  useEffect(() => {
-    const asyncFetch = async () => {
-      try {
-        const endpoint =
-          "http://localhost:8000/wp-json/wp/v2/posts/" + param.id;
+  const { id } = useParams();
+  const { post, err, isLoading } = useBlogFetch(id);
 
-        const res = await fetch(endpoint)
-          .then((res) => res.json())
-          .catch((err) => {
-            throw new Error(err);
-          });
-        console.log(res);
-        setArticle(res);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        console.log("done");
-      }
-    };
-    asyncFetch();
-  }, [param]);
-
-  const ToRender = article ? (
+  const ToRender = post ? (
     <>
-      <h1>{article.title.rendered}</h1>
-      <p>{article.date}</p>
+      <h1>{post.title.rendered}</h1>
+      <p>{post.date}</p>
       <section
         className="blog--content"
-        dangerouslySetInnerHTML={{ __html: article.content.rendered }}
+        dangerouslySetInnerHTML={{ __html: post.content.rendered }}
       />
     </>
   ) : null;
