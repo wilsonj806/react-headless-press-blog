@@ -11,7 +11,7 @@ const BlogLayout = () => {
 
   return (
     <BaseLayout>
-      <article>Hello, this is my blog</article>
+      <article className="layout--content">Hello, this is my blog</article>
     </BaseLayout>
   );
 };

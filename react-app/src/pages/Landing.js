@@ -33,7 +33,7 @@ const Landing = () => {
       : null;
   return (
     <BaseLayout>
-      <article className="landing">
+      <article className="layout--content">
         <div className="ctr-landing-content">
           {/* <section className="intro">
             <div className="ctr-intro">
