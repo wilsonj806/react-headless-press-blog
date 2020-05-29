@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 
 import BaseLayout from "../layouts/BaseLayout";
@@ -7,7 +7,11 @@ import useBlogFetch from "../react-hooks/useBlogFetch";
 
 const BlogLayout = () => {
   const { id } = useParams();
-  const { post, err, isLoading } = useBlogFetch(id);
+  const {
+    post,
+    // err,
+    // isLoading
+  } = useBlogFetch(id);
 
   const ToRender = post ? (
     <>
