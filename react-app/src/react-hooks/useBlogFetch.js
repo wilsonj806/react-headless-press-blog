@@ -27,7 +27,7 @@ function useBlogFetch(uriParam) {
       }
     };
     debounce(asyncFetch, 100)();
-  }, []);
+  }, [uriParam]);
   return {
     isLoading,
     post: article,

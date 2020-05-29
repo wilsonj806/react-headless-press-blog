@@ -5,7 +5,7 @@ import LandingCard from "../components/LandingCard";
 import BaseLayout from "../layouts/BaseLayout";
 
 import useLandingFetch from "../react-hooks/useLandingFetch";
-import debounce from "../utils/debounce";
+// import debounce from "../utils/debounce";
 
 const Landing = () => {
   const { err, articles, isLoading } = useLandingFetch();
