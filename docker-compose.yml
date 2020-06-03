@@ -1,0 +1,43 @@
+# So compose PHP compose/ Wordpress/ SQL
+version: '3'
+
+services:
+  # Database
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    networks:
+      - wpsite
+  wordpress:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: decap-wordpress
+    # image: wordpress:latest
+    depends_on:
+      - db
+    ports:
+      - '8000:80'
+    restart: always
+    # Wordpress has files, so we need the container files to be popped in locally
+    # So we use brackets, './:var/www/html' to map the files to our local directory
+    # volumes:
+    #   - ./local-wp:/var/www/html
+    #   - ./local-wp-plugins:/to-sync/plugins
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+    networks:
+      - wpsite
+networks:
+  wpsite:
+volumes:
+  db_data:
